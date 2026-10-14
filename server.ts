@@ -290,4 +290,10 @@ async function startServer() {
   });
 }
 
-startServer();
+// Start server in standalone Node.js environments (skip when running as a Vercel serverless function)
+if (!process.env.VERCEL) {
+  startServer();
+}
+
+export { app };
+export default app;
